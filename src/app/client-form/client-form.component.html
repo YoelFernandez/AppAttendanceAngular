@@ -1,0 +1,33 @@
+<p-toast />
+<div class="mx-7 justify-content-center align-items-center min-h-screen ">
+    <p-card header="Forumulario Client" class="w-10 ">
+        <form [formGroup]="formClient" (ngSubmit)="edit ? updateClient() : createClient()" class="flex-column gap-2">
+
+
+            <div class="field">
+                <label for="nombreCliente">nombre Cliente</label>
+                <input type="text" pInputText formControlName="nombreCliente" class="w-full" />
+            </div>
+
+            <div class="field">
+                <label for="correoCliente">correoCliente</label>
+                <input type="text" pInputText formControlName="correoCliente" class="w-full" />
+            </div>
+
+            <div class="field">
+                <label for="telefonoCliente">telefonoCliente</label>
+                <input type="text" pInputText formControlName="telefonoCliente" class="w-full" />
+
+            </div>
+
+            <div class="flex gap-2">
+                <p-button label="Guardar" [loading]="isSaveInProgress" type="submit"/>
+                <a routerLink="/" class="p-button font-bold">
+                    Actualizar
+                </a>
+
+            </div>
+        </form>
+    </p-card>
+
+</div>
