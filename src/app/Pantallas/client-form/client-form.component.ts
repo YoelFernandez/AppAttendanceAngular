@@ -6,7 +6,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { ClientService } from '../Service/client.service';
+import { ClientService } from '../../Service/client.service';
 import { ButtonModule } from 'primeng/button';
 
 @Component({

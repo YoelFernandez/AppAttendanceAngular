@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClientService {
   private endpoint = "client";
 

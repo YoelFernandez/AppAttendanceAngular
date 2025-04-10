@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ObraFormComponent } from './obra-form/obra-form.component';
-import { ClientComponent } from './client/client.component';
-import { ClientFormComponent } from './client-form/client-form.component';
+import { ObraFormComponent } from './Pantallas/obra-form/obra-form.component';
+import { ClientComponent } from './Pantallas/client/client.component';
+import { ClientFormComponent } from './Pantallas/client-form/client-form.component';
+import { AuthFormComponent } from './Pantallas/auth-form/auth-form.component';
+import { StorageComponent } from './Pantallas/storage/storage.component';
 
 export const routes: Routes = [
     {
@@ -32,7 +34,16 @@ export const routes: Routes = [
         component:ClientComponent,
         title:'Listado de clientes'
     },
-
+    {   
+        path:'auth',
+        component:AuthFormComponent,
+        title:'Forumlario inicio'
+    },
+    {   
+        path:'storage',
+        component:StorageComponent,
+        title:'vista de imagenes'
+    },
     {
         path:'**',
         redirectTo:'',

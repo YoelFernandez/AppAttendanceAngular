@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from '../Models/client';
-import { ClientService } from '../Service/client.service';
+import { Cliente } from '../../Models/client';
+import { ClientService } from '../../Service/client.service';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { RouterModule } from '@angular/router';
