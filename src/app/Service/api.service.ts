@@ -6,8 +6,7 @@
       providedIn: 'root'
     })
     export class ApiService {
-      private apiUrl = "http://localhost:8080"; // URL base
-      //private apiUrl = "https://main-katie-universidadnacionaldecajamarca-957e9216.koyeb.app"; // URL base
+      private apiUrl = "https://main-katie-universidadnacionaldecajamarca-957e9216.koyeb.app";
 
       constructor(private http: HttpClient) {}
 

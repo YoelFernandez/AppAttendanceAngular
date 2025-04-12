@@ -5,12 +5,8 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 
 import { AuthInterceptor } from './Service/auth.interceptor'; // Asegúrate de ajustar la ruta
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
-
-
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 
 export const appConfig: ApplicationConfig = {
@@ -23,7 +19,11 @@ export const appConfig: ApplicationConfig = {
             preset: Aura
         }
     }),
-    provideHttpClient(),
+    provideHttpClient(
+      withInterceptors([
+        AuthInterceptor
+      ])
+    ),
     MessageService,
   ],
 };
