@@ -5,6 +5,7 @@ import { ClientComponent } from './Pantallas/client/client.component';
 import { ClientFormComponent } from './Pantallas/client-form/client-form.component';
 import { AuthFormComponent } from './Pantallas/auth-form/auth-form.component';
 import { StorageComponent } from './Pantallas/storage/storage.component';
+import { UploadFileComponent } from './Pantallas/upload-file/upload-file.component';
 
 export const routes: Routes = [
     {
@@ -43,6 +44,11 @@ export const routes: Routes = [
         path:'storage',
         component:StorageComponent,
         title:'vista de imagenes'
+    },
+    {   
+        path:'uploadStorage',
+        component:UploadFileComponent,
+        title:'subir imagen'
     },
     {
         path:'**',

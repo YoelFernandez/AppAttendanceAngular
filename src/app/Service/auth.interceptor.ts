@@ -7,15 +7,18 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const token = authService.getToken();
 
-  if (token) {
-    console.log("Token enviado:", token);
-    const authReq = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return next(authReq);
-  }
+ // Define endpoints públicos (los que NO deben incluir token)
+ const isPublicEndpoint = req.url.includes('/auth/login') || req.url.includes('/auth/register');
 
-  return next(req);
+ // Solo agrega el token si la petición no es pública
+ if (token && !isPublicEndpoint) {
+   const authReq = req.clone({
+     setHeaders: {
+       Authorization: `Bearer ${token}`,
+     },
+   });
+   return next(authReq);
+ }
+
+ return next(req);
 };

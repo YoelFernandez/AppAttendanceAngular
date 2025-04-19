@@ -32,7 +32,6 @@ export class ClientFormComponent implements OnInit{
       nombreCliente: ['', Validators.required],
       correoCliente: ['', Validators.required],
       telefonoCliente: ['', Validators.required],
-      
     });
 
    }
