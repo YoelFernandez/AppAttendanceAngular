@@ -1,5 +1,5 @@
-<div class="max-w-md mx-auto p-6 bg-white rounded-xl shadow-md space-y-4">
-  <h2 class="text-xl font-semibold text-gray-700">Subir Imagen</h2>
+<div class="max-w-md mx-auto p-6 bg-white rounded-xl shadow-md mt-32">
+  <h2 class="text-xl font-semibold text-gray-700">Subir Imagenes</h2>
 
   <label
     class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue-500 rounded-lg shadow-md tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-500 hover:text-white transition duration-300"
@@ -9,22 +9,24 @@
         d="M16.88 9.94A1.5 1.5 0 0015.5 9H13V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4H4.5a1.5 1.5 0 00-1.38.94L2 13h16l-1.12-3.06z"
       />
     </svg>
-    <span class="mt-2 text-base leading-normal">Seleccionar imagen</span>
-    <input type="file" class="hidden" (change)="onFileSelected($event)" />
+    <span class="mt-2 text-base leading-normal">Seleccionar imágenes</span>
+    <input type="file" class="hidden" (change)="onFilesSelected($event)" multiple />
   </label>
 
-  <div *ngIf="previewUrl" class="w-full flex justify-center">
-    <img
-      [src]="previewUrl"
-      alt="Vista previa"
-      class="max-w-full h-48 object-contain border rounded-lg"
-    />
+  <div *ngIf="previewUrls.length > 0" class="w-full flex flex-wrap justify-center space-x-4">
+    <div *ngFor="let preview of previewUrls">
+      <img
+        [src]="preview"
+        alt="Vista previa"
+        class="max-w-xs h-48 object-contain border rounded-lg"
+      />
+    </div>
   </div>
 
   <button
     (click)="onUpload()"
     class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
   >
-    Subir Imagen
+    Subir Imagenes
   </button>
 </div>

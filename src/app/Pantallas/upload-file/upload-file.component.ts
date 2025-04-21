@@ -9,33 +9,43 @@ import { CommonModule } from '@angular/common';
   styleUrl: './upload-file.component.css'
 })
 export class UploadFileComponent {
-  selectedFile: File | null = null;
-  previewUrl: string | ArrayBuffer | null = null;
+  selectedFiles: FileList | null = null;
+  previewUrls: string[] = [];
 
   constructor(private storageService: StorageServiceService) {}
 
-  onFileSelected(event: Event): void {
+  // Seleccionar múltiples archivos
+  onFilesSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
+      this.selectedFiles = input.files;
+      this.previewUrls = [];
 
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.previewUrl = reader.result;
-      };
-      reader.readAsDataURL(this.selectedFile);
+      // Leer los archivos seleccionados para mostrar una vista previa
+      Array.from(this.selectedFiles).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          if (reader.result) {
+            this.previewUrls.push(reader.result as string);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
     }
   }
 
   onUpload(): void {
-    if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('file', this.selectedFile);
-
-      this.storageService.createStorage(formData).subscribe({
-        next: (res) => console.log('Imagen subida con éxito', res),
-        error: (err) => console.error('Error al subir la imagen', err)
+    if (this.selectedFiles && this.selectedFiles.length > 0) {
+      Array.from(this.selectedFiles).forEach((file) => {
+        const formData = new FormData();
+        formData.append('file', file);
+  
+        this.storageService.createStorage(formData).subscribe({
+          next: (res) => console.log(`Imagen ${file.name} subida con éxito`, res),
+          error: (err) => console.error(`Error al subir la imagen ${file.name}`, err)
+        });
       });
     }
   }
+  
 }
