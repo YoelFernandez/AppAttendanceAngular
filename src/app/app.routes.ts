@@ -6,6 +6,8 @@ import { ClientFormComponent } from './Pantallas/client-form/client-form.compone
 import { AuthFormComponent } from './Pantallas/auth-form/auth-form.component';
 import { StorageComponent } from './Pantallas/storage/storage.component';
 import { UploadFileComponent } from './Pantallas/upload-file/upload-file.component';
+import { JuegoMinasComponent } from './Pantallas/juego-minas/juego-minas.component';
+import { PracticandoStylesComponent } from './Pantallas/practicando-styles/practicando-styles.component';
 
 export const routes: Routes = [
     {
@@ -49,6 +51,16 @@ export const routes: Routes = [
         path:'uploadStorage',
         component:UploadFileComponent,
         title:'subir imagen'
+    },
+    {   
+        path:'styles',
+        component:PracticandoStylesComponent,
+        title:'estilos'
+    },
+    {   
+        path:'juegoMinas',
+        component:JuegoMinasComponent,
+        title:'juegoMinas'
     },
     {
         path:'**',
