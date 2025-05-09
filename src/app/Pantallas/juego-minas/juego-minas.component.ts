@@ -52,4 +52,11 @@ export class JuegoMinasComponent implements OnInit {
     );
 
   }
+
+  reproducirAudio() {
+    const audio = new Audio();
+    audio.src = '/audio.mp3'; // ruta relativa al archivo en assets
+    audio.load();
+    audio.play();
+  }
 }

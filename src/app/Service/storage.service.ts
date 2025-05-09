@@ -11,7 +11,7 @@ export class StorageService {
   
   constructor(private apiService: ApiService) { }
   
-  getAllImages():Observable<String[]>{
-    return this.apiService.getAll<String>(`${this.endpoint}/listar`);
+  getAllImages():Observable<string[]>{
+    return this.apiService.getAll<string>(`${this.endpoint}/listar`);
   }
 }

@@ -6,7 +6,7 @@
       providedIn: 'root'
     })
     export class ApiService {
-      private apiUrl = "https://main-katie-universidadnacionaldecajamarca-957e9216.koyeb.app";
+      private apiUrl = "https://api-attendance-802810634534.us-central1.run.app/";
 
       constructor(private http: HttpClient) {}
 

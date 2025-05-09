@@ -22,7 +22,8 @@ export const routes: Routes = [
         title:'ListaObras'
     },
     {
-        path:'obra/:id',
+        //path:'obra/:id',
+        path:'obrac/:imagenUrl',
         component:ObraFormComponent,
         title:'Forumlario de obras'
     },
@@ -61,11 +62,12 @@ export const routes: Routes = [
         path:'juegoMinas',
         component:JuegoMinasComponent,
         title:'juegoMinas'
-    },
-    {
-        path:'**',
-        redirectTo:'',
-       pathMatch:'full'
     }
+    // ,
+    // {
+    //     path:'**',
+    //     redirectTo:'',
+    //    pathMatch:'full'
+    // }
 ];
 
